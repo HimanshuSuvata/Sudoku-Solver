@@ -3,23 +3,25 @@
 
 class SudokuPuzzle {
   private:
+	// data members
   	short int board[9][9];
   	bool debug;
 
-  	void printTracerTryingValue(int x_cord, int y_cord);
-  	bool solve(int x_cord, int y_cord);
-  	bool verifyValue(int x_cord, int y_cord);
+	// member functions
+  	void printTracerTryingValue(int cord_x, int cord_y);
+  	bool solve(int cord_x, int cord_y);
+  	bool verifyValue(int cord_x, int cord_y);
 
   public:
-    // Constructor
-	  SudokuPuzzle();
+    	// Constructor
+	SudokuPuzzle();
   
-    void print();
+   void print();
 	
-	  void setBoardValue(int x_cord, int y_cord, int value);
+	  void setBoardValue(int cord_x, int cord_y, int value);
   
-	  int getBoardValue(int x_cord, int y_cord);
-		bool solve();
+	  int getBoardValue(int cord_x, int cord_y);
+	  bool solve();
 };
 
 #endif
