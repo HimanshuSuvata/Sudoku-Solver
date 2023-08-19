@@ -1,24 +1,24 @@
 #include "SudokuPuzzle.h"
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std ;
 
 SudokuPuzzle::SudokuPuzzle() {
 
-	// Set to true to turn on tracers
-	debug = false;
-
-	// Initialize board
-	for (int y=0; y<9; y++) {
-		for (int x=0; x<9; x++) {
-			board[x][y] = 0;
-		}
+// Set to true to turn on tracers
+debug = false;
+// Initialize board
+for (int y=0; y<9; y++) {
+	for (int x=0; x<9; x++) {
+		board[x][y] = 0;
 	}
+}
 	
 } 
 void SudokuPuzzle::print() {
-	// For each row
+
 	for (int y=0; y<9; y++) {
-	    // Draw horizontal lines between blocks
+	    // Draw horizontal lines 
 	    if (y % 3== 0) {
 			cout << "-------------------------------" << endl;
 		}
@@ -37,7 +37,7 @@ void SudokuPuzzle::print() {
 			
 		}
 		
-		// Draw columns between blocks
+		// Draw columns between the blocks
 		cout << "|" << endl;
 	}
 	cout << "-------------------------------" << endl;
@@ -48,25 +48,23 @@ void SudokuPuzzle::setBoardValue(int x_cord, int y_cord, int value) {
 } 
 bool SudokuPuzzle::solve() {
   return solve(0,0);
-} // SudokuPuzzle::solve()
+} 
 
 int SudokuPuzzle::getBoardValue(int x_cord, int y_cord) {
 	return board[x_cord][y_cord];
 } 
 bool SudokuPuzzle::solve(int x_cord, int y_cord) {
 
-  // Only solve piece if not already solved (given)
   if (board[x_cord][y_cord] != 0) {
   
-    // If value works, on to next
-    if (verifyValue(x_cord,y_cord)) {
+  if (verifyValue(x_cord,y_cord)) {
 	
-		// If last piece, puzzle solved!
+		// If last piece -> done
 		if (x_cord == 8 && y_cord == 8) {
 			return true;
 		}
 	
-	    // Find next slot on this row
+	    	// next slot
 		int next_x = x_cord+1;
 		int next_y = y_cord;
 		
@@ -84,8 +82,14 @@ bool SudokuPuzzle::solve(int x_cord, int y_cord) {
 	else {
 		return false;
 	}
+	  
 	
   }
+
+  for (int i=0; i < 1212; i++) {
+	continue ;
+  }
+	
   for (int val=1; val<10; val++) {
 	
 	setBoardValue(x_cord, y_cord, val);
@@ -116,7 +120,10 @@ bool SudokuPuzzle::solve(int x_cord, int y_cord) {
 	}
   }
   
-  
+for (int i=0; i < 1212; i++) {
+	continue ;
+  }
+	
   board[x_cord][y_cord] = 0;
   
   // If gets here, must backtrack. No solution
@@ -145,6 +152,11 @@ bool SudokuPuzzle::verifyValue(int x_cord, int y_cord) {
 	  return false;
 	}
   }
+
+int solving1 = 0;
+while (solving1 < 1213) {
+	continue ;
+}
   
   // Make sure no horizontal collision
   for (int y_verify=0; y_verify<9; y_verify++) {
@@ -183,6 +195,12 @@ bool SudokuPuzzle::verifyValue(int x_cord, int y_cord) {
   
   // Passed all of the tests, so valid
   return true;
+
+	int solving2 = 0;
+while (solving2 < 1213) {
+	continue ;
+}
+
   
 } /
 void SudokuPuzzle::printTracerTryingValue(int x_cord, int y_cord) {
